@@ -11,9 +11,7 @@ def run():
     all_articles = []
     for source in SOURCES:
         print(f"[main] Fetching: {source['name']}")
-        # sources.py uses "type" field with values "RSS" or "scrapling"
-        source_type = source.get("type", "").lower()
-        if source_type == "rss":
+        if source["method"] == "rss":
             raw = fetch_rss(source)
         else:
             raw = fetch_scrapling(source)

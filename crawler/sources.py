@@ -3,28 +3,28 @@
 SOURCES = [
     {
         "name": "Dairy Reporter",
-        "type": "RSS",
+        "method": "rss",
         "url": "https://www.dairyreporter.com/rss/news",
         "category": "news",
         "language": "en",
     },
     {
         "name": "USDA Dairy",
-        "type": "RSS",
+        "method": "rss",
         "url": "https://www.ams.usda.gov/rss/mncs/dairy.xml",
         "category": "news",
         "language": "en",
     },
     {
         "name": "Fonterra News",
-        "type": "RSS",
+        "method": "rss",
         "url": "https://www.fonterra.com/nz/en/news-and-media/news.rss.xml",
         "category": "news",
         "language": "en",
     },
     {
         "name": "农业农村部",
-        "type": "scrapling",
+        "method": "scrapling",
         "url": "http://www.moa.gov.cn/govpublic/",
         "category": "news",
         "language": "zh",
@@ -32,7 +32,7 @@ SOURCES = [
     },
     {
         "name": "GDT拍卖",
-        "type": "scrapling",
+        "method": "scrapling",
         "url": "https://www.globaldairytrade.info/en/product-results/",
         "category": "company",
         "language": "en",
@@ -43,13 +43,13 @@ SOURCES = [
 SOCIAL_SOURCES = [
     {
         "name": "xueqiu",
-        "type": "scrapling",
+        "method": "scrapling",
         "url": "https://xueqiu.com/search?q=乳业&type=status",
         "selector": "div.timeline-item",
     },
     {
         "name": "eastmoney",
-        "type": "scrapling",
+        "method": "scrapling",
         "url": "https://search.eastmoney.com/快讯?keyword=乳业",
         "selector": "div.news-item",
     },

@@ -25,3 +25,15 @@ def test_summarize_article_returns_dict(mock_get_client):
 def test_summarize_empty_title():
     result = summarize_article("", "")
     assert result == {"summary": "", "sentiment_score": 0.0, "tags": []}
+
+
+@patch("crawler.ai_summarizer.get_client")
+def test_summarize_handles_api_error(mock_get_client):
+    mock_client = MagicMock()
+    mock_get_client.return_value = mock_client
+    mock_message = MagicMock()
+    mock_message.content = []  # empty list, triggers IndexError
+    mock_client.messages.create.return_value = mock_message
+
+    result = summarize_article("测试标题", "测试内容")
+    assert result == {"summary": "", "sentiment_score": 0.0, "tags": []}
