@@ -1,7 +1,7 @@
 """Supabase writer for the dairy intelligence crawler.
 
 All keys are read from environment variables — never hardcoded.
-Uses service_role key to bypass RLS.
+Uses SUPABASE_KEY (publishable/anon key) with RLS disabled on write tables.
 """
 import os
 from supabase import create_client, Client
@@ -10,7 +10,7 @@ from supabase import create_client, Client
 def get_client() -> Client:
     """Create a Supabase client from environment variables."""
     url = os.environ["SUPABASE_URL"]
-    key = os.environ["SUPABASE_SERVICE_KEY"]
+    key = os.environ["SUPABASE_KEY"]
     return create_client(url, key)
 
 
